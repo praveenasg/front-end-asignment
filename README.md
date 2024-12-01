@@ -1,4 +1,3 @@
-````markdown
 # Front-End Assignment
 
 A React-based project for contact management featuring a form with validation, a searchable contact table, and seamless integration with modern libraries.
@@ -41,11 +40,11 @@ Before you begin, ensure you have:
 ## Deployment Instructions
 
 1. **Clone the Repository**
+
    ```bash
    git clone https://github.com/praveenasg/front-end-asignment.git
    cd front-end-asignment
    ```
-````
 
 2. **Install Dependencies**
    Install the necessary packages using npm or yarn:
