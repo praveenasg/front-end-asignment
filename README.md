@@ -54,6 +54,14 @@ Before you begin, ensure you have:
    yarn install
    ```
 
+   **If you run into error its because of React 19 and peer dependencies. If so, please use the following command**
+
+   ```bash
+   npm install --legacy-peer-deps
+   # OR
+   yarn install --legacy-peer-deps
+   ```
+
 3. **Run the Development Server**
    Start the development server locally:
 
