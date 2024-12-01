@@ -12,7 +12,6 @@ A React-based project for contact management featuring a form with validation, a
 - [Configuration](#configuration)
 - [Test Plan](#test-plan)
 - [Sample Data](#sample-data)
-- [Repository Link](#repository-link)
 
 ---
 
