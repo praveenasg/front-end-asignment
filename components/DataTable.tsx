@@ -22,7 +22,7 @@ import { useState } from "react";
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
-  handleRowSelect: (rowData: TData) => void;
+  handleRowSelect: (rowData: TData) => void; // function to handle data propagation.
 }
 
 export function DataTable<TData, TValue>({
@@ -30,7 +30,6 @@ export function DataTable<TData, TValue>({
   data,
   handleRowSelect,
 }: DataTableProps<TData, TValue>) {
-  //   const [rowSelection, setRowSelection] = useState({});
   const [selectedRowId, setSelectedRowId] = useState<string | null>(null);
   const table = useReactTable({
     data,
@@ -70,9 +69,12 @@ export function DataTable<TData, TValue>({
               table.getRowModel().rows.map((row) => (
                 <TableRow
                   key={row.id}
+                  // modified to only select one row at a time
                   data-state={row.id === selectedRowId ? "selected" : undefined}
                   onClick={() => {
+                    // set the current row as selected
                     setSelectedRowId(row.id);
+                    // propagate data to the parent component
                     handleRowSelect(row.original);
                   }}
                 >

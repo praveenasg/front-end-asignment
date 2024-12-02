@@ -29,6 +29,7 @@ import { columns } from "./Columns";
 import { useState } from "react";
 import { format, addDays } from "date-fns";
 
+// handle validation here.
 const formSchema = z.object({
   firstname: z.string().optional(),
   lastname: z.string().optional(),
@@ -56,7 +57,10 @@ const formSchema = z.object({
 });
 
 function ContactSearch() {
+  // Data after the user clicks on search will be stored in the variable
   const [filteredData, setFilteredData] = useState<Contact[]>();
+
+  // Declare Form schema
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -87,6 +91,7 @@ function ContactSearch() {
   }
 
   function onSubmit(values: z.infer<typeof formSchema>) {
+    //  return the contact if any of the following values (first name , last name ... execpt DATE OF BIRTH ) matches with the current contact
     const filteredValues = contactsData.filter((contact) => {
       return (
         (values.firstname && values.firstname.length > 0
@@ -303,6 +308,7 @@ function ContactSearch() {
               </div>
             </div>
 
+            {/* ---- Submit Button ---- */}
             <Button type="submit" variant="outline" className="text-blue-400">
               Search
             </Button>
